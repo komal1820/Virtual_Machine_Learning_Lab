@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url('alfons-morales-YLSwjSy7stw-unsplash.jpg');
+ 
+
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.parallax1 {
+  /* The image used */
+   background-image: url('pexels-alex-knight-2599244.jpg');
+ 
+
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.parallax2 {
+  /* The image used */
+   background-image: url('arnold-francisca-f77Bh3inUpE-unsplash.jpg');
+ 
+
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+blah {
+  font-family: "Roboto Mono";
+  font-size: 100px;
+  padding: 50px 0 0 100px;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  font-weight: 700;
+  color: #e29578;
+  height: 100vh;
+  background-color: radial-gradient(#e85e3c, #7c1717);
+  background-repeat: no-repeat;
+}
+
+.t3xts {
+  line-height: 1;
+  position: relative;
+  perspective: 1000px;
+  text-transform: uppercase;
+}
+
+.t3xt {
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  text-transform: uppercase;
+}
+
+.t3xt-out {
+  animation: text-out 0.5s ease;
+}
+
+.t3xt-in {
+  animation: text-in 0.5s ease;
+}
+
+@keyframes text-out {
+  to {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+}
+@keyframes text-in {
+  from {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+.container {
+  position: absolute;
+  margin: 40px;
+  width: auto;
+}
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 18px 20px;
+  text-decoration: none;
+  font-size: 25px;
+  font-family:sans-serif;
+}
+
+.topnav a:hover {
+  background-color: #83c5be;
+  color: black;
+}
+.topnav-right {
+  float: right;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="topnav">
+	<div class="topnav-right">
+      <a href="#home">Home</a>
+      <a href="about1.php">About Us</a>
+      <a href="explore.php">Explore Labs</a>
+      <a href="index.php">Log In</a>
+    </div>
+  </div>
+ </div>
+<div class="parallax"></div>
+<h1><center>Welcome to the Virtual Labs.</center></h1>
+<div class="parallax1"></div>
+<center><h1>This Lab will help you learn about Machine Learning</center></h1>
+<div class="parallax2"></div>
+<div class="blah" text-align: center>
+<div class="t3xts t3xt-1">Learn</div>
+<div class="t3xts t3xt-2">With US</div>
+<div class="t3xts t3xt-3">Machine Learning</div>
+</div>
+
+<script>
+function n3xt(text, element) {
+  let sample = document.querySelector(element);
+  if (sample.dataset.animating === 'true') return;
+  let sampleH = 50; // will keep it fixed, otherwise sample.offsetHeight
+  let sampleT = sample.textContent; // old text
+  let sampleNT = text; // new text
+  sample.dataset.animating = 'true';
+  sample.style.height = sampleH + 'px';
+
+  // original text element
+  let samO = document.createElement('div');
+  samO.style.transformOrigin = '0 ' + sampleH / 2 + 'px -' + sampleH / 2 + 'px';
+  samO.classList.add('t3xt');
+  samO.textContent = sampleT;
+
+  // new text element
+  let samN = samO.cloneNode();
+  samN.textContent = sampleNT;
+  sample.textContent = '';
+  sample.appendChild(samO);
+  sample.appendChild(samN);
+
+  samO.classList.add('t3xt-out');
+  samN.classList.add('t3xt-in');
+
+  samN.addEventListener('animationend', function (event) {
+    sample.removeChild(samO);
+    sample.removeChild(samN);
+    sample.textContent = sampleNT;
+    sample.dataset.animating = 'false';
+  });
+}
+
+
+let phraseIndex = 1;
+let wordIndex = 0;
+let t3xts = [
+["Learn", "With US", "Machine Learning"],
+["I can't", "see my", "forehead"],
+["Is mayonnaise", "an instrument?"],
+["F stands", "for Fun", "🎶"],
+["I wumbo", "you wumbo", "he/she/me wumbo"],
+["It may be", "stupid, but", "it's also dumb"],
+["Moss always", "points to", "civilization"]];
+
+
+// start it off
+setTimeout(changetext, 200);
+
+function changetext() {
+  if (wordIndex > 2) {
+    wordIndex = 0;
+    phraseIndex++;
+  }
+  if (phraseIndex >= t3xts.length) {
+    phraseIndex = 0;
+  }
+  let term = t3xts[phraseIndex][wordIndex];
+  n3xt(term, '.t3xt-' + ++wordIndex);
+
+  if (wordIndex == 3) {
+    setTimeout(changetext, 2000);
+  } else {
+    setTimeout(changetext, 150);
+  }
+}
+</script>
+</body>
+</html>

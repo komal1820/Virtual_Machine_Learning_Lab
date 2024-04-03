@@ -1,0 +1,112 @@
+<?php
+session_start();
+error_reporting(0);
+include("includes/config.php");
+
+?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Explore Labs</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #006d77;
+   color: #fff;
+   text-align: left;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #161a1d;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #83c5be;
+}
+
+</style>
+</head>
+<body style="background-color:#edf6f9">
+    <?php include('includes/header.php');?>
+	<ul>
+  <li style="float:right"><a href="login.php">Log In</a></li>
+  <li style="float:right"><a href="about1.php">About Us</a></li>
+  <li style="float:right"><a href="firstpage.php">Home</a></li>
+</ul>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-head-line">Explore Our Labs!</h4>
+
+                </div>
+
+            </div>
+		
+            <div class="row">
+                <div class="col-md-6">
+			<div class="row">
+                 <div class="column">
+				 
+				 </div>
+<img src="machine-learning.png" alt="ML" align="left" style="width: 1000px">
+                  
+ 
+</div>
+				   
+                </div>
+                <div class="col-md-6">
+                   
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; Virtual Labs | By : TE-B</p>
+</div>
+
+</body>
+</html>
